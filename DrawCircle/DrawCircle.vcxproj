@@ -186,6 +186,7 @@
     <ClInclude Include="DrawCircle.h" />
     <ClInclude Include="DrawCircleDoc.h" />
     <ClInclude Include="DrawCircleView.h" />
+    <ClInclude Include="DrawSolution.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="DrawCircle.cpp" />
     <ClCompile Include="DrawCircleDoc.cpp" />
     <ClCompile Include="DrawCircleView.cpp" />
+    <ClCompile Include="DrawSolution.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

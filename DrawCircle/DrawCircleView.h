@@ -3,13 +3,16 @@
 //
 
 #pragma once
-
+#include"DrawSolution.h"
 
 class CDrawCircleView : public CView
 {
 protected: // 仅从序列化创建
 	CDrawCircleView() noexcept;
 	DECLARE_DYNCREATE(CDrawCircleView)
+	CPoint Center;
+	CPoint Radius;
+
 
 // 特性
 public:
@@ -17,7 +20,7 @@ public:
 
 // 操作
 public:
-
+	DrawSolution Sol;
 // 重写
 public:
 	virtual void OnDraw(CDC* pDC);  // 重写以绘制该视图
@@ -40,6 +43,9 @@ protected:
 // 生成的消息映射函数
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
 };
 
 #ifndef _DEBUG  // DrawCircleView.cpp 中的调试版本

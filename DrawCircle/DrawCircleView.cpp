@@ -26,6 +26,8 @@ BEGIN_MESSAGE_MAP(CDrawCircleView, CView)
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
+	ON_WM_RBUTTONDOWN()
+	ON_WM_RBUTTONUP()
 END_MESSAGE_MAP()
 
 // CDrawCircleView 构造/析构
@@ -102,3 +104,31 @@ CDrawCircleDoc* CDrawCircleView::GetDocument() const // 非调试版本是内联
 
 
 // CDrawCircleView 消息处理程序
+
+
+void CDrawCircleView::OnRButtonDown(UINT nFlags, CPoint point)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+
+	this->Center = point;
+	CDC *pdc=this->GetDC();
+	
+	pdc->Ellipse(point.x-5,point.y-5,point.x+5,point.y+5);
+
+
+	this->ReleaseDC(pdc);
+	CView::OnRButtonDown(nFlags, point);
+}
+
+
+void CDrawCircleView::OnRButtonUp(UINT nFlags, CPoint point)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	this->Radius = point;
+	CDC *pdc = this->GetDC();
+	pdc->MoveTo(this->Center);
+	pdc->LineTo(this->Radius);
+	this->Sol.Setpdc(pdc);
+	this->Sol.Bres_Circle(this->Center, this->Radius);
+	CView::OnRButtonUp(nFlags, point);
+}
