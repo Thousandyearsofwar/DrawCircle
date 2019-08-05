@@ -130,5 +130,11 @@ void CDrawCircleView::OnRButtonUp(UINT nFlags, CPoint point)
 	pdc->LineTo(this->Radius);
 	this->Sol.Setpdc(pdc);
 	this->Sol.Bres_Circle(this->Center, this->Radius);
+	
+	CPoint TempRadius(this->Radius.x+10,this->Radius.y+10);
+	this->Sol.MidPoint_Circle(this->Center,TempRadius);
+
+	this->ReleaseDC(pdc);
+
 	CView::OnRButtonUp(nFlags, point);
 }

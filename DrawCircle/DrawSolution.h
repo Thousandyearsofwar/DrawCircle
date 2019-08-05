@@ -8,6 +8,6 @@ public:
 	~DrawSolution();
 	void Cirpot(int x0, int y0,int x, int y);
 	void Bres_Circle(CPoint Center,CPoint Radius);
-
+	void MidPoint_Circle(CPoint Center, CPoint Radius);
 };
 
